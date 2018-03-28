@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     }
    
     @IBAction func newGame(_ sender: UIButton) {
+        emojiChoices = Array(emoji.values)
         game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
         updateViewFromModel()
         flipCount = 0
@@ -57,7 +58,16 @@ class ViewController: UIViewController {
     
     var emojiChoices = ["😦", "😏", "🤔", "😊", "😉", "🍟", "😶", "😱", "😢"]
     
-    var emoji = [Int:String]() // This is a dictionary
+    var emoji = [0 : "😦",
+                 1 : "😏",
+                 2 : "🤔",
+                 3 : "😊",
+                 4 : "😉",
+                 5 : "🍟",
+                 6 : "😶",
+                 7 : "😱",
+                 8 : "😢"]
+    
     
     func emoji(for card: Card) -> String {
         if emoji[card.identifier] == nil, emojiChoices.count > 0  {
