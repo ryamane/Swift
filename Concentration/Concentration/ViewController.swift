@@ -35,7 +35,9 @@ class ViewController: UIViewController {
     }
    
     @IBAction func newGame(_ sender: UIButton) {
-        emojiChoices = Array(emoji.values)
+        
+        //emojiChoices = Array(emoji.values)
+        emojiChoices = Array(themes[Int(arc4random_uniform(UInt32(themes.count)))]!)
         game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
         updateViewFromModel()
         flipCount = 0
@@ -56,17 +58,24 @@ class ViewController: UIViewController {
         }
     }
     
-    var emojiChoices = ["😦", "😏", "🤔", "😊", "😉", "🍟", "😶", "😱", "😢"]
+    var standardTheme = ["😦","😏","🤔","😊","😉","🍟","😶","😱","😢"]
     
-    var emoji = [0 : "😦",
-                 1 : "😏",
-                 2 : "🤔",
-                 3 : "😊",
-                 4 : "😉",
-                 5 : "🍟",
-                 6 : "😶",
-                 7 : "😱",
-                 8 : "😢"]
+    var sportsTheme = ["⚽️","🏀","🏈","⚾️","🎾","🏐","🏉","🎱","⛳️"]
+    
+    var emoji =      [0 : "😦",
+                      1 : "😏",
+                      2 : "🤔",
+                      3 : "😊",
+                      4 : "😉",
+                      5 : "🍟",
+                      6 : "😶",
+                      7 : "😱",
+                      8 : "😢"]
+    
+    lazy var themes = [0 : standardTheme,
+                       1 : sportsTheme]
+    
+    lazy var emojiChoices = Array(emoji.values)
     
     
     func emoji(for card: Card) -> String {
