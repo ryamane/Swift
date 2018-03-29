@@ -20,15 +20,35 @@ class Concentration {
     
     var score = 0
     
+    var seenCards = Array<Int>()
+    
     func chooseCard(at index: Int) {
         if !cards[index].isMatched {
             flipCount += 1
+
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
+                
                 // check if cards match
+                print("Index: \(index) matchIndex: \(matchIndex). Seen cards: \(seenCards)")
                 if cards[matchIndex].identifier == cards[index].identifier {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    score += 2
+                } else {
+                    if seenCards.contains(index) {
+                        score -= 1
+                    }
+                    if seenCards.contains(matchIndex) {
+                        score -= 1
+                    }
                 }
+                if !seenCards.contains(matchIndex) {
+                    seenCards.append(matchIndex)
+                }
+                if !seenCards.contains(index) {
+                    seenCards.append(index)
+                }
+                
                 cards[index].isFaceUp = true
                 indexOfOneAndOnlyFaceUpCard = nil
             } else {
@@ -44,6 +64,8 @@ class Concentration {
     
     func resetGame() {
         flipCount = 0
+        score = 0
+        seenCards = []
     }
     
     init(numberOfPairsOfCards: Int) {
