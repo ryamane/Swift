@@ -18,6 +18,8 @@ class Concentration {
     
     var flipCount = 0
     
+    var score = 0
+    
     func chooseCard(at index: Int) {
         if !cards[index].isMatched {
             flipCount += 1

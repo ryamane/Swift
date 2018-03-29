@@ -51,6 +51,7 @@ class ViewController: UIViewController {
             }
         }
         flipCountLabel.text = "Flips: \(game.flipCount)"
+        gameScore.text = "Score: \(game.score)"
     }
     
     // Card Themes
