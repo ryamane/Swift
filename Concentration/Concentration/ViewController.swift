@@ -58,22 +58,30 @@ class ViewController: UIViewController {
         }
     }
     
-    var standardTheme = ["😦","😏","🤔","😊","😉","🍟","😶","😱","😢"]
+    // Card Themes
+    var standardTheme = ["😦","😏","🤔","😊","😉","😶","😱","😢"]
+    var sportsTheme = ["⚽️","🏀","🏈","⚾️","🎾","🏐","🏉","🎱"]
+    var fruitTheme = ["🍎","🍐","🍊","🍋","🍌","🍉","🍇","🍓"]
+    var foodTheme = ["🍞","🧀","🥚","🥞","🥓","🥩","🍖","🍔"]
+    var vehicleTheme = ["🚗","🚕","🚙","🚌","🚎","🚓","🚑","🚒"]
+    var heartTheme = ["❤️","🧡","💛","💚","💙","💜","🖤","💕"]
     
-    var sportsTheme = ["⚽️","🏀","🏈","⚾️","🎾","🏐","🏉","🎱","⛳️"]
-    
+    // Standard theme is used as a default
     var emoji =      [0 : "😦",
                       1 : "😏",
                       2 : "🤔",
                       3 : "😊",
                       4 : "😉",
-                      5 : "🍟",
-                      6 : "😶",
-                      7 : "😱",
-                      8 : "😢"]
+                      5 : "😶",
+                      6 : "😱",
+                      7 : "😢"]
     
     lazy var themes = [0 : standardTheme,
-                       1 : sportsTheme]
+                       1 : sportsTheme,
+                       2 : fruitTheme,
+                       3 : foodTheme,
+                       4 : vehicleTheme,
+                       5 : heartTheme]
     
     lazy var emojiChoices = Array(emoji.values)
     
