@@ -29,12 +29,11 @@ class Concentration {
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
                 
                 // check if cards match
-                print("Index: \(index) matchIndex: \(matchIndex). Seen cards: \(seenCards)")
                 if cards[matchIndex].identifier == cards[index].identifier {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
-                    score += 2
-                } else {
+                    score += 2 // 2 points for a match
+                } else { // if no match, subtract 1 point for each card already seen
                     if seenCards.contains(index) {
                         score -= 1
                     }
