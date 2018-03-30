@@ -182,9 +182,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cb2-Fl-ySW">
-                                <rect key="frame" x="16" y="44" width="146" height="30"/>
+                                <rect key="frame" x="16" y="44" width="188" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -195,6 +195,7 @@
                     <connections>
                         <outlet property="flipCountLabel" destination="Zhg-bb-Ei3" id="jh4-Rr-hKd"/>
                         <outlet property="gameScore" destination="Cb2-Fl-ySW" id="gJS-uZ-0Lc"/>
+                        <outlet property="timer" destination="8bC-Xf-vdC" id="E4t-tO-BVT"/>
                         <outletCollection property="cardButtons" destination="zqX-Q9-IWO" collectionClass="NSMutableArray" id="cfj-sj-nw4"/>
                         <outletCollection property="cardButtons" destination="1gh-pN-XVd" collectionClass="NSMutableArray" id="Thm-cY-M06"/>
                         <outletCollection property="cardButtons" destination="BVg-7d-pIL" collectionClass="NSMutableArray" id="QhJ-pz-fRK"/>

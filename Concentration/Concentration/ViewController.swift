@@ -32,7 +32,6 @@ class ViewController: UIViewController {
         game.resetGame()
     }
     
-    
     func updateViewFromModel() {
         for index in cardButtons.indices {
             let button = cardButtons[index]
@@ -48,6 +47,7 @@ class ViewController: UIViewController {
         view.backgroundColor = emojiThemes[themeIndex].bgColor
         flipCountLabel.text = "Flips: \(game.flipCount)"
         gameScore.text = "Score: \(game.score)"
+        
     }
     
     // Game Themes

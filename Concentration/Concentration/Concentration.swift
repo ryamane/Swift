@@ -11,16 +11,14 @@ import Foundation
 class Concentration {
     
     var cards = Array<Card>()
-    
     var shuffledCards = Array<Card>()
-    
     var indexOfOneAndOnlyFaceUpCard: Int?
-    
     var flipCount = 0
-    
     var score = 0
-    
     var seenCards = Array<Int>()
+    var startTime = Date()
+    var previousMatchTime = Date()
+    var hasMatchedAPair = false
     
     func chooseCard(at index: Int) {
         if !cards[index].isMatched {
@@ -33,6 +31,27 @@ class Concentration {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
                     score += 2 // 2 points for a match
+                    if hasMatchedAPair == false {
+                        let firstMatchTime = Date()
+                        let firstMatchTimeInterval = firstMatchTime.timeIntervalSince(startTime)
+                        if firstMatchTimeInterval < 3 {
+                            score += 2
+                        } else if firstMatchTimeInterval >= 3, firstMatchTimeInterval < 6 {
+                            score += 1
+                        }
+                    } else {
+                        let nextMatchTime = Date()
+                        let nextMatchTimeInterval = nextMatchTime.timeIntervalSince(previousMatchTime)
+                        if nextMatchTimeInterval < 3 {
+                            score += 2
+                        } else if nextMatchTimeInterval >= 3, nextMatchTimeInterval < 6 {
+                            score += 1
+                        }
+                    }
+                    hasMatchedAPair = true
+                    previousMatchTime = Date()
+                    
+                    
                 } else { // if no match, subtract 1 point for each card already seen
                     if seenCards.contains(index) {
                         score -= 1
@@ -65,6 +84,7 @@ class Concentration {
         flipCount = 0
         score = 0
         seenCards = []
+        startTime = Date.init()
     }
     
     init(numberOfPairsOfCards: Int) {
